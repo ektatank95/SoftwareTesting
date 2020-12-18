@@ -14,19 +14,14 @@ public class appointmentService {
 		@Autowired
 		private appointmentRepository bookAppointment;
 
-		public String dummy(){
-		return "dummy";
-	}
-		
 		public List<appointment> listAll(){
 			return bookAppointment.findAll();
 		}
 		
-		public void save(appointment appointment) {
-			bookAppointment.save(appointment);
+		public appointment save(appointment appointment) {
+			return bookAppointment.save(appointment);
 		}
-		
-		
+
 		public void delete(Integer id) {
 			bookAppointment.deleteById(id);
 		}

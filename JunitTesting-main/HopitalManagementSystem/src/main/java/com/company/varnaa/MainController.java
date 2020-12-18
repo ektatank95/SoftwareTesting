@@ -3,7 +3,6 @@ package com.company.varnaa;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,11 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
-
 
 
 @Controller
@@ -91,7 +86,7 @@ public class MainController {
 				) {
 			appointment.setConfirmed("Not yet confirmed");
 		   service.save(appointment);
-		   String appointmentId=appointment.getAppointment_id().toString();
+		   String appointmentId=appointment.getAppointmentId().toString();
 		   String message = "Appointment was successfully booked, your id is: "+appointmentId;
 		   redirectAttributes.addFlashAttribute("message", message);
 		   redirectAttributes.addFlashAttribute("alertClass", "alert-success");
@@ -106,7 +101,7 @@ public class MainController {
 				BindingResult result, ModelMap model,
 				RedirectAttributes redirectAttributes
 				) {
-		   Integer id = appointment.getAppointment_id();
+		   Integer id = appointment.getAppointmentId();
 		   service.delete(id);
 		  String message = "Appointment was successfully canceled!";
 		  redirectAttributes.addFlashAttribute("message", message);
@@ -120,9 +115,9 @@ public class MainController {
 				RedirectAttributes redirectAttributes
 				) {
 			System.out.println(appointment);
-			//Optional<com.company.varnaa.appointment> x = service.get(appointment.getAppointment_id());
+			//Optional<com.company.varnaa.appointment> x = service.get(appointment.getAppointmentId());
 		 String confirmation = "confirmed";
-		 Integer id = appointment.getAppointment_id();
+		 Integer id = appointment.getAppointmentId();
 		 service.setConfirmation(confirmation, id);
 		System.out.println(id);
 		  String message = "Appointment was successfully confirmed!";

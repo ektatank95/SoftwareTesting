@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -15,11 +14,11 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 public class appointment {
 
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="appointment_id")
-	private Integer appointment_id;
+	//@Column(name="appointmentId")
+	private Integer appointmentId;
 	
 	@Column(name="patientName")
 	private String patientName;
@@ -47,14 +46,13 @@ public class appointment {
 
 	@Override
 	public String toString() {
-		return "appointment [appointment_id=" + appointment_id + ", patientName=" + patientName + ", doctorName="
+		return "appointment [appointmentId=" + appointmentId + ", patientName=" + patientName + ", doctorName="
 				+ doctorName + ", date=" + date + ", prescription=" + prescription + "]";
 	}
 
-	public appointment(Integer appointment_id, String patientName, String doctorName, String date,
+	public appointment(String patientName, String doctorName, String date,
 			String prescription,String confirmed) {
 		super();
-		this.appointment_id = appointment_id;
 		this.patientName = patientName;
 		this.doctorName = doctorName;
 		this.date = date;
@@ -62,12 +60,12 @@ public class appointment {
 		this.confirmed=confirmed;
 	}
 
-	public Integer getAppointment_id() {
-		return appointment_id;
+	public Integer getAppointmentId() {
+		return appointmentId;
 	}
 
-	public void setAppointment_id(Integer appointment_id) {
-		this.appointment_id = appointment_id;
+	public void setAppointmentId(Integer appointmentId) {
+		this.appointmentId = appointmentId;
 	}
 
 	public appointment() {}
@@ -103,7 +101,4 @@ public class appointment {
 	public void setConfirmed(String confirmed) {
 		this.confirmed = confirmed;
 	}
-
-
-	
 }

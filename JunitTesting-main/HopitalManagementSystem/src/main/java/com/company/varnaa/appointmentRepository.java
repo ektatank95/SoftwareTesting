@@ -17,14 +17,15 @@ public interface appointmentRepository extends JpaRepository<appointment,Integer
 	List<appointment> findByPatientName(String patientName);
 	
 	@Modifying 
-	@Query("update appointment a set a.confirmed = ?1 where a.appointment_id = ?2")
+	@Query("update appointment a set a.confirmed = ?1 where a.appointmentId = ?2")
 	int setConfirmation(String confitmation, Integer id);
 	
 
 	@Modifying 
-	@Query("update appointment a set a.prescription = ?1 where a.appointment_id = ?2")
+	@Query("update appointment a set a.prescription = ?1 where a.appointmentId = ?2")
 	int setPrescription(String prescription, Integer id);
 	
 	@Query(value="select * from appointment a where a.appointment_date =?1 AND a.doctor_name =?2", nativeQuery=true)
 	List<appointment> findByDate(String date,String doctorName);
 }
+

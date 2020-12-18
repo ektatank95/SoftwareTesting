@@ -39,7 +39,7 @@ No appointments found
             <th>Prescription</th>
         </tr>
         <tr th:each="appointment : ${doctorAppointments}">
-            <td th:text="${appointment.appointment_id}"></td>
+            <td th:text="${appointment.appointmentId}"></td>
           	<td th:text="${appointment.patientName}"></td>
           	<td th:text="${appointment.date}"></td>
           	<td>

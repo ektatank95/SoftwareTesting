@@ -38,7 +38,7 @@ border-spacing: 10px;
             <th>confirmation</th>
         </tr>
         <tr th:each=" appointment : ${listAppointments}">
-            <td th:text="${appointment.appointment_id}"></td>
+            <td th:text="${appointment.appointmentId}"></td>
           	<td th:text="${appointment.patientName}"></td>  
           	<td th:text="${appointment.doctorName}"></td>
           	<td th:text="${appointment.date}"></td>

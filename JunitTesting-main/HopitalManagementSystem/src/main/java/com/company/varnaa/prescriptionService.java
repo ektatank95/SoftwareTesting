@@ -13,8 +13,8 @@ public class prescriptionService {
 	@Autowired
 	private prescriptionRepository repository;
 	
-	public void save(prescription Prescription) {
-		repository.save(Prescription);
+	public prescription save(prescription Prescription) {
+		return repository.save(Prescription);
 	}
 	
 	public List<prescription> findByPatientName(String patientName){

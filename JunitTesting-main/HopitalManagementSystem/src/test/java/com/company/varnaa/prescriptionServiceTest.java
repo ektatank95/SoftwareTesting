@@ -36,7 +36,7 @@ import static org.mockito.Mockito.when;
     public void givenPrescription_whenSaveAndRetreivePrescription_thenOK() {
         //data preparation
         prescription prescription=new prescription("Aman",1,"Cold and Flu","Sameer");
-        prescription save = repository.save(prescription);
+        prescription save = service.save(prescription);
         prescription byId = repository.findById(save.getPrescriptionID()).orElse(null);
         assertEquals(save.getPatientName(),byId.getPatientName());
         assertEquals(save.getDoctorName(),byId.getDoctorName());

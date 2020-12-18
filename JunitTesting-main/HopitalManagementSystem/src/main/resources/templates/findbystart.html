@@ -28,7 +28,7 @@ border-spacing: 5px;
             <th>prescription</th>
         </tr>
         <tr th:each="appointment : ${appointments}">
-            <td th:text="${appointment.appointment_id}"></td>
+            <td th:text="${appointment.appointmentId}"></td>
           	<td th:text="${appointment.patientName}"></td>
           	<td th:text="${appointment.date}"></td>
           	<td th:text="${appointment.prescription}"></td>
