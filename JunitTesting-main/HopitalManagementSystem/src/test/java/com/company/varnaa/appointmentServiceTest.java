@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,25 +27,24 @@ class appointmentServiceTest {
     private appointmentRepository repository;
 
     @BeforeClass
-    public void beforeClass(){
-        repository.flush();
-    }
-
-    @AfterClass
-    public void afterClass(){
-        repository.flush();
-    }
-
-
-
-
-    @Before
-    public void before(){
+    private void beforeClass(){
         repository.deleteAll();
         repository.flush();
     }
+    @AfterClass
+    private void afterClass(){
+        repository.deleteAll();
+        repository.flush();
+    }
+
+    @BeforeEach
+    private void before(){
+        repository.deleteAll();
+        repository.flush();
+    }
+
     @After
-    public void after(){
+    private void after(){
         repository.deleteAll();
         repository.flush();
     }

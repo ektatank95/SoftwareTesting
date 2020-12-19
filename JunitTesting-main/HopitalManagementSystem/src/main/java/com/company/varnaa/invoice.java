@@ -28,6 +28,17 @@ public class invoice {
 	@Column 
 	private String invoice;
 
+	public invoice(String patientName, Integer appointmentID, String invoice) {
+		super();
+		this.patientName = patientName;
+		this.appointmentID = appointmentID;
+		this.invoice = invoice;
+	}
+
+	public invoice() {
+
+	}
+
 	public Integer getInvoiceID() {
 		return invoiceID;
 	}
@@ -60,17 +71,4 @@ public class invoice {
 		this.invoice = invoice;
 	}
 
-	public invoice(Integer invoiceID, String patientName, Integer appointmentID, String invoice) {
-		super();
-		this.invoiceID = invoiceID;
-		this.patientName = patientName;
-		this.appointmentID = appointmentID;
-		this.invoice = invoice;
-	}
-
-	public invoice() {
-		
-	}
-	
-	
 }
